@@ -1,0 +1,22 @@
+def MetadataObjectForURL(url):
+	page = HTML.ElementFromURL(url)
+	title = page.xpath("//head/title/text()")[0]
+	description = page.xpath("//head//meta[@name='description']/@content")[0]
+	thumb = None
+	return VideoClipObject(title = title, summary = description, thumb = thumb) 
+
+def MediaObjectsForURL(url):
+	return [
+		MediaObject(
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			audio_codec = AudioCodec.AAC,
+			parts = [PartObject(key=Callback(PlayVideo, url=url))]
+		)
+	]
+
+def PlayVideo(url):
+	page = HTTP.Request(url).content
+	video_url = Regex('(?P<video_url>https.*?_hd_.*?.mp4)').search(page).group('video_url')
+	Log(video_url)
+	return Redirect(video_url)
