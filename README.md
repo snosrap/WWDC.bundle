@@ -1,3 +1,19 @@
+About
+-----
+This is a Plex Channel that displays the WWDC 2017 Videos.
+
+Usage
+-----
+copy the WWDC [Channel bundle](https://support.plex.tv/hc/en-us/articles/201169747-A-Beginner-s-Guide-to-v2-1) to the Plex Plug-ins directory.
+
+	cp -r WWDC.bundle ~/Library/Application\ Support/Plex\ Media\ Server/Plug-ins/.
+
+copy the WWDC [URL Service](https://support.plex.tv/hc/en-us/articles/201382123-The-Power-of-the-URL-Service) to the Plex Services.bundle.
+
+	cp -r WWDC.bundle/Contents/Services ~/Library/Application\ Support/Plex\ Media\ Server/Plug-ins/Services.bundle/Contents/Service\ Sets/com.plexapp.plugins.wwdc
+
+You should now see "WWDC 2017 Videos" as a new Plex Channel
+
 License
 -------
 
